@@ -12,9 +12,19 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
- // bora time! 
-
+const average = (numbers) => {
+  let soma = 0;
+  if (numbers === [] || Number.isNaN(numbers)) {
+    throw new Error('undefined');
+  }
+  for (let i = 1; i <= numbers.length; i += 1) {
+    soma += numbers[i];
+  }
+  try {
+    console.log(soma / numbers.length);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 module.exports = average;
