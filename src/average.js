@@ -12,19 +12,29 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
+const stringX = (numbers) => {
+  for (let i = 0; i < numbers.length; i += 1) {
+    if (typeof numbers[i] !== 'number') {
+      return false;
+    }
+  }
+  return true;
+};
+
 const average = (numbers) => {
   let soma = 0;
-  if (numbers === [] || Number.isNaN(numbers)) {
-    throw new Error('undefined');
-  }
-  for (let i = 1; i <= numbers.length; i += 1) {
+  for (let i = 0; i < numbers.length; i += 1) {
     soma += numbers[i];
   }
-  try {
-    console.log(soma / numbers.length);
-  } catch (error) {
-    console.log(error.message);
+  const media = Math.round(soma / numbers.length);
+
+  if (numbers.length === 0 || stringX(numbers) === false) {
+      console.log('undefined');
+    } else {
+      return media;
   }
 };
+
+console.log(average([-11, 2, 5]));
 
 module.exports = average;
