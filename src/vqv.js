@@ -16,6 +16,17 @@
       #VQV!'
 */
 
-const vqv = () => {};
+const vqv = (name, age) => {
+  const parte1 = `Oi, meu nome é ${name}!\n`;
+  const parte2 = `Tenho ${age} anos,\n`;
+  const parte3 = 'trabalho na Trybe e mando muito em programação!\n#VQV!';
+  if (typeof name !== 'string' || typeof age === 'string') {
+    console.log('undefined');
+  } else {
+    let frase = `${parte1}${parte2}${parte3}`;
+    return frase;
+  }
+};
 
+console.log(vqv('João', 2));
 module.exports = vqv;
