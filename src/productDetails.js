@@ -39,4 +39,6 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+console.log(Array.isArray(productDetails('vassoura', 'pa')));
+
 module.exports = productDetails;
