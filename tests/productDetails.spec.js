@@ -49,18 +49,23 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
 
   it('Verifica se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.', () => {
     const produtos1 = productDetails('agulha', 'linha');
-    const produtos2 = productDetails('notebook', 'celular'); 
-    const produtos3 = productDetails('notebook', 'notebook'); 
-   
-    expect(JSON.stringify(produtos1[0]) !== JSON.stringify(produtos1[1])).toBeTruthy();
-    expect(JSON.stringify(produtos2[0]) !== JSON.stringify(produtos2[1])).toBeTruthy()
-    expect(JSON.stringify(produtos3[0]) !== JSON.stringify(produtos3[1])).toBeFalsy()
-    
+    const produtos2 = productDetails('notebook', 'celular');
+    const produtos3 = productDetails('notebook', 'notebook');
+
+    expect(
+      JSON.stringify(produtos1[0]) !== JSON.stringify(produtos1[1])
+    ).toBeTruthy();
+    expect(
+      JSON.stringify(produtos2[0]) !== JSON.stringify(produtos2[1])
+    ).toBeTruthy();
+    expect(
+      JSON.stringify(produtos3[0]) !== JSON.stringify(produtos3[1])
+    ).toBeFalsy();
   });
 
   it('Verifica se o array retornado pela função contém dois itens dentro.', () => {
-    const produtos1 = productDetails('notebook', 'celular')
-   
+    const produtos1 = productDetails('notebook', 'celular');
+
     expect(produtos1[0].details.productId.endsWith('123')).toBeTruthy();
     expect(produtos1[1].details.productId.endsWith('123')).toBeTruthy();
   });
@@ -71,5 +76,4 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
 https://dev.to/frugencefidel/10-javascript-string-methods-you-should-know-4l76 - Atanes divulgou no Slack
 https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
 https://www.w3schools.com/js/js_json_stringify.asp
-
 */
