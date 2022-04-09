@@ -42,14 +42,40 @@ Retorno:
 */
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
-  it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-    // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
-    // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
-    // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
-    // Teste se os parâmetros não são Case Sensitive.
-    // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+  it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {});
+  // ESCREVA SEUS TESTES ABAIXO:
+  it('Verifica se a função, quando não recebe nenhum parâmetro, retorna undefined.', () => {
+    expect(getCharacter()).toBeUndefined();
   });
+  
+  it('Verifica se a função retorna o objeto correto para o parâmetro "Arya". ', () => {
+    expect(getCharacter('Arya').name).toBe('Arya Stark');
+    expect(getCharacter('Arya').class).toBe('Rogue');
+    expect(getCharacter('Arya').phrases).toStrictEqual(['Not today', 'A girl has no name.']);
+  });
+
+  it('Verifica se a função retorna o objeto correto para o parâmetro "Brienne".', () => {
+    expect(getCharacter('Brienne').name).toBe('Brienne Tarth');
+    expect(getCharacter('Brienne').class).toBe('Knight');
+    expect(getCharacter('Brienne').phrases).toStrictEqual(['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.']);
+
+  });
+
+  it('Verifica se a função retorna o objeto correto para o parâmetro "Melissandre"', () => {
+    expect(getCharacter('Melissandre').name).toBe('Melissandre');
+    expect(getCharacter('Melissandre').class).toBe('Necromancer');
+    expect(getCharacter('Melissandre').phrases).toStrictEqual(['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.']);
+  });
+
+  it('Verifica se os parâmetros não são Case Sensitive.', () => {
+    expect(getCharacter('Melissandre') === getCharacter('MeLIsSandrE')).toBeTruthy();
+    expect(getCharacter('arya') === getCharacter('ARYA') ).toBeTruthy();
+    expect(getCharacter('Brienne') !== getCharacter('bRIennE')).toBeFalsy();
+  });
+  it('Verifica se ao passar um nome que não está na tabela, a função retorna undefined.', () => {
+    expect(getCharacter('Jhon')).toBeUndefined();
+    expect(getCharacter('Tyrion')).toBeUndefined();
+    expect(getCharacter('Daenerys')).toBeUndefined();
+  });
+  // Teste 
 });
